@@ -1,0 +1,12 @@
+# archivo de variables de entorno
+.env
+
+# archivos de credenciales de google
+credentials.json
+token.json
+
+# archivo de IDE
+.idea/
+
+# entorno virtual pyhton
+.venv/
