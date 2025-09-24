@@ -95,7 +95,7 @@ def hablar(mensaje):
 def recetas(ingredientes):
     try:
         client = genai.Client(api_key=os.getenv("GEMINI_API_KEY")) #se crea un cliente (con el que se llama a gemini) y se le pasa la api (la llave para que pueda acceder
-        #OCULTAR CLAVE API
+
 
         # promt que se le envia a gemini
         prompt = f"Tengo estos ingredientes: {ingredientes}. Dame 2 recetas sencillas que pueda preparar, solo con título y breve descripción, en español. No me des introduccion, solo mencioná directamente las opciones"
@@ -305,9 +305,6 @@ def consultar_temporizador(nombre):
         # Si no se encuentra ningún temporizador con ese nombre
         hablar("No encontré un temporizador con ese nombre")
 
-# REQUISITO 7: CHISTES DE COCINA
-
-
 # REQUISITO 8: MODO CHEF PRO
 def cambiar_modo(nuevo_modo):
     global modo
@@ -347,9 +344,9 @@ def centro_pedido():
             continue
 
         # para el requisito 3:
-        elif ("agrega" in pedido or "agregá" in pedido) and "lista" in pedido:
+        elif ("agrega" in pedido or "agregá" in pedido or "agregar" in pedido) and "lista" in pedido:
             ingredientes = (
-                pedido.replace("agrega", "").replace("agregá", "").replace("a la lista de compras", "").replace("a la lista", "").replace("lista de compras", "").replace("lista", "").strip())
+                pedido.replace("agregar", "").replace("agregá", "").replace("a la lista de compras", "").replace("a la lista", "").replace("lista de compras", "").replace("lista", "").strip())
             if ingredientes:
                 agregar_lista(ingredientes)
             else:
@@ -413,8 +410,6 @@ def centro_pedido():
                 nombre = "cocina"
             consultar_temporizador(nombre)
             continue
-
-        # para el requisito 7:
 
         # para el requsito 8:
         elif "modo chef pro" in pedido:

@@ -10,3 +10,6 @@ token.json
 
 # entorno virtual pyhton
 .venv/
+
+# Archivos del sistema operativo (opcional, pero buena practica)
+.DS_Store
